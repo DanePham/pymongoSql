@@ -24,6 +24,18 @@ Usage Examples
 
 	is this mongo query:  db.users.find({$and:[{name:'bob the builder'}, {hourly_rate:{$lte:1000}}]}, {_id:0, name:1, phone_no:1})
 
+Testing
+==============
+
+> `python -m unittest test.py`
+
+
+	..
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.064s
+    
+    OK
+
 
 TODO
 ====
