@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import unittest
-from pymongoSql import sql_to_spec, create_mongo_shell_query, spec_str
+from src.sqlCompiler import sql_to_spec, create_mongo_shell_query, spec_str
 
 
 class TestSQLMongo(unittest.TestCase):

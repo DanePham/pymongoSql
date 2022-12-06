@@ -246,10 +246,5 @@ def create_mongo_shell_query(query_dict):
 
     return shell_query
 
-if __name__ == "__main__":
-    querySql = "Add your SQL query here and remove 'querySQl' - Example below"
-    
-    querySql = "SELECT name, phone_no FROM users WHERE name = 'bob the builder' AND hourly_rate <= 1000" # Example SQL query
-
-    queryMongo = create_mongo_shell_query(sql_to_spec(querySql)) # MongoDB query (pymongo)
-    print(queryMongo)
+if __name__ == '__main__':
+    print('OK')
