@@ -108,7 +108,7 @@ def sql_to_spec(query):
             expr = {tokens[0]: find_value}
         else:
             expr = {tokens[0]: {cond: find_value}}
-
+        
         return expr
 
     @debug_print
@@ -207,8 +207,8 @@ def spec_str(spec):
     if isinstance(spec, list):
         out_str = "[" + ', '.join([spec_str(x) for x in spec]) + "]"
     elif isinstance(spec, dict):
-        out_str = "{" + ', '.join(["{}:{}".format(x, spec_str(spec[x])
-                                                  ) for x in sorted(spec)]) + "}"
+        out_str = "{" + ', '.join(["'{}':{}".format(x.replace("'", ""), spec_str(spec[x])
+                                                ) for x in sorted(spec)]) + "}"
     elif spec and isinstance(spec, str) and not spec.isdigit():
         out_str = "'" + spec + "'"
     else:
@@ -247,11 +247,9 @@ def create_mongo_shell_query(query_dict):
     return shell_query
 
 if __name__ == "__main__":
-    # querySql = "Add your SQL query here and remove 'querySQl' - Example below"
+    querySql = "Add your SQL query here and remove 'querySQl' - Example below"
     
-    querySql = "Select * from data"
-    
-    # querySql = "SELECT name, phone_no FROM users WHERE name = 'bob the builder' AND hourly_rate <= 1000" # Example SQL query
-    
+    querySql = "SELECT name, phone_no FROM users WHERE name = 'bob the builder' AND hourly_rate <= 1000" # Example SQL query
+
     queryMongo = create_mongo_shell_query(sql_to_spec(querySql)) # MongoDB query (pymongo)
     print(queryMongo)
